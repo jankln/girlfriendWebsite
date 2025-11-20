@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Countdown from './components/Countdown'
 import Heart from './components/Heart'
@@ -7,17 +7,36 @@ import LoveClicker from './components/LoveClicker'
 function App() {
   const [started, setStarted] = useState(false)
   const [isZooming, setIsZooming] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
+  const audioRef = useRef(null)
 
   const handleStart = () => {
     if (isZooming) return
     setIsZooming(true)
+    
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5
+      audioRef.current.play().catch(e => console.log("Audio play failed:", e))
+    }
+
     setTimeout(() => {
       setStarted(true)
     }, 800)
   }
 
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !audioRef.current.muted
+      setIsMuted(!isMuted)
+    }
+  }
+
   return (
     <>
+      <audio ref={audioRef} loop preload="auto">
+        <source src="/backgroudSong.mp3" type="audio/mpeg" />
+      </audio>
+
       <AnimatePresence mode="wait">
         {!started && (
           <motion.div 
@@ -82,6 +101,30 @@ function App() {
           transition={{ duration: 1.5 }}
           className="responsive-container"
         >
+          <button 
+            onClick={toggleMute}
+            style={{
+              position: 'fixed',
+              top: '20px',
+              right: '20px',
+              zIndex: 100,
+              background: 'rgba(0,0,0,0.5)',
+              border: '2px solid var(--color-stitch-blue)',
+              color: 'white',
+              padding: '0',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.2rem',
+              cursor: 'pointer'
+            }}
+          >
+            {isMuted ? '🔇' : '🔊'}
+          </button>
+
           <LoveClicker /> {/* Background floating hearts */}
           
           <header className="responsive-header">
