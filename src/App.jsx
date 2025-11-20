@@ -68,15 +68,16 @@ function App() {
                   className="script-font"
                   style={{ 
                     marginTop: '2rem', 
-                    fontSize: '1.5rem', 
-                    color: 'var(--color-gold)',
+                    fontSize: '2rem', 
+                    color: 'var(--color-stitch-light)',
                     opacity: 0.8,
                     position: 'absolute',
                     bottom: '20%',
-                    pointerEvents: 'none'
+                    pointerEvents: 'none',
+                    textShadow: '2px 2px 0px #000'
                   }}
                 >
-                  Klick auf das Herz
+                  PRESS START
                 </motion.p>
               )}
             </AnimatePresence>
@@ -108,29 +109,42 @@ function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              style={{ fontSize: '3rem', marginBottom: '0.5rem' }}
+              style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.5' }}
             >
-              Für mein boo
+              OHANA MEANS FAMILY
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
               className="script-font"
-              style={{ fontSize: '1.5rem', color: 'var(--color-gold)' }}
+              style={{ fontSize: '2rem', color: 'var(--color-stitch-light)' }}
             >
-              Ich liebe dich unendlich +1❤️
+              FAMILY MEANS NO ONE GETS LEFT BEHIND OR FORGOTTEN 💙
             </motion.p>
           </header>
 
-          <main style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '4rem', alignItems: 'center', zIndex: 10 }}>
+          <main style={{ 
+            width: '100%', 
+            maxWidth: '800px', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '4rem', 
+            alignItems: 'center', 
+            zIndex: 10,
+            background: 'rgba(0, 0, 0, 0.2)',
+            padding: '3rem',
+            border: '8px solid var(--color-gold)',
+            borderImage: 'url("data:image/svg+xml,%3Csvg width=\'30\' height=\'30\' viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h10v10H0zm10 10h10v10H10zm10 10h10v10H20z\' fill=\'%23F6C48B\' fill-opacity=\'0.4\'/%3E%3C/svg%3E") 30 round',
+            boxShadow: '0 0 0 4px var(--color-bg), 0 0 0 8px var(--color-stitch-blue)'
+          }}>
             <section>
               <Countdown />
             </section>
           </main>
 
-          <footer style={{ marginTop: 'auto', padding: '2rem', opacity: 0.7, fontSize: '0.9rem', zIndex: 10 }}>
-            <p>Für Jana P.</p>
+          <footer style={{ marginTop: 'auto', padding: '2rem', opacity: 0.7, fontSize: '1.2rem', zIndex: 10 }}>
+            <p>für mein boo</p>
           </footer>
         </motion.div>
       )}

@@ -30,17 +30,20 @@ const Countdown = () => {
   }
 
   const numberStyle = {
-    fontSize: '2.5rem',
+    fontSize: '3rem',
     fontFamily: 'var(--font-heading)',
-    color: 'var(--color-burgundy)'
+    color: 'var(--color-stitch-light)',
+    textShadow: '4px 4px 0px var(--color-stitch-dark)'
   }
 
   const labelStyle = {
-    fontSize: '0.9rem',
+    fontSize: '1.2rem',
     textTransform: 'uppercase',
-    letterSpacing: '1px',
-    opacity: 0.8,
-    color: 'var(--color-burgundy)'
+    letterSpacing: '2px',
+    opacity: 0.9,
+    color: 'var(--color-accent-pink)',
+    marginTop: '0.5rem',
+    fontFamily: 'var(--font-body)'
   }
 
   return (
@@ -48,10 +51,24 @@ const Countdown = () => {
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
-      style={{ textAlign: 'center' }}
+      style={{ 
+        textAlign: 'center',
+        background: 'rgba(0,0,0,0.3)',
+        padding: '2rem',
+        border: '4px solid var(--color-stitch-blue)',
+        boxShadow: '8px 8px 0px var(--color-stitch-dark)'
+      }}
     >
-      <h2 style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-script)', fontSize: '2rem', color: 'var(--color-burgundy)' }}>Wir sind zusammen seit...</h2>
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+      <h2 style={{ 
+        marginBottom: '2rem', 
+        fontFamily: 'var(--font-heading)', 
+        fontSize: '1.5rem', 
+        color: 'var(--color-text)',
+        lineHeight: '1.5'
+      }}>
+        Ich liebe dich unendlich +1 seit:
+      </h2>
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div style={itemStyle}>
           <span style={numberStyle}>{timeElapsed.days}</span>
           <span style={labelStyle}>Tagen</span>

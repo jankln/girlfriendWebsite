@@ -76,19 +76,20 @@ const LoveClicker = () => {
           <motion.div
             key={text.id}
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 0.15, scale: 1 }} // Very subtle opacity
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 0.5 }}
             style={{
               position: 'absolute',
               left: `${text.x}%`,
               top: `${text.y}%`,
-              fontFamily: 'var(--font-script)',
-              fontSize: '2.5rem',
-              color: 'var(--color-gold)',
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.5rem',
+              color: 'var(--color-stitch-light)',
+              textShadow: '3px 3px 0px var(--color-stitch-dark)',
               pointerEvents: 'none',
               whiteSpace: 'nowrap',
-              zIndex: 0
+              zIndex: 30
             }}
           >
             {text.text}
@@ -110,15 +111,14 @@ const LoveClicker = () => {
               position: 'absolute',
               cursor: 'pointer',
               pointerEvents: 'auto',
-              fontSize: '2.5rem',
-              color: 'var(--color-burgundy)',
-              filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))',
+              fontSize: '3rem',
+              filter: 'drop-shadow(4px 4px 0px rgba(0,0,0,0.3))',
               zIndex: 10
             }}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
-            ❤️
+            {Math.random() > 0.5 ? '💙' : '🌺'}
           </motion.div>
         ))}
       </AnimatePresence>
@@ -148,11 +148,11 @@ const LoveClicker = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               style={{
                 position: 'absolute',
-                width: '8px',
-                height: '8px',
-                background: i % 2 === 0 ? 'var(--color-gold)' : 'var(--color-burgundy)',
-                borderRadius: '50%',
-                boxShadow: '0 0 10px rgba(255,215,0,0.8)'
+                width: '12px',
+                height: '12px',
+                background: i % 2 === 0 ? 'var(--color-stitch-blue)' : 'var(--color-accent-pink)',
+                boxShadow: '2px 2px 0px rgba(0,0,0,0.5)',
+                imageRendering: 'pixelated'
               }}
             />
           ))}
