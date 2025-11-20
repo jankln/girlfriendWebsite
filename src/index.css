@@ -1,0 +1,43 @@
+:root {
+  --color-bg: #1a0510;
+  --color-bg-alt: #2d0a1e;
+  --color-gold: #F6C48B;
+  --color-burgundy: #FDEEF8; /* Text color now light */
+  --color-accent: #D4af37;
+  --color-peach: #FFD6C2;
+  --color-lavender: #EAE6FF;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-script: 'Dancing Script', cursive;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-burgundy);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.script-font {
+  font-family: var(--font-script);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
