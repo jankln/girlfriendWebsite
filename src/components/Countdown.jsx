@@ -22,68 +22,32 @@ const Countdown = () => {
     return () => clearInterval(timer)
   }, [])
 
-  const itemStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: '0 1rem'
-  }
-
-  const numberStyle = {
-    fontSize: '3rem',
-    fontFamily: 'var(--font-heading)',
-    color: 'var(--color-stitch-light)',
-    textShadow: '4px 4px 0px var(--color-stitch-dark)'
-  }
-
-  const labelStyle = {
-    fontSize: '1.2rem',
-    textTransform: 'uppercase',
-    letterSpacing: '2px',
-    opacity: 0.9,
-    color: 'var(--color-accent-pink)',
-    marginTop: '0.5rem',
-    fontFamily: 'var(--font-body)'
-  }
-
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
-      style={{ 
-        textAlign: 'center',
-        background: 'rgba(0,0,0,0.3)',
-        padding: '2rem',
-        border: '4px solid var(--color-stitch-blue)',
-        boxShadow: '8px 8px 0px var(--color-stitch-dark)'
-      }}
+      className="countdown-wrapper"
     >
-      <h2 style={{ 
-        marginBottom: '2rem', 
-        fontFamily: 'var(--font-heading)', 
-        fontSize: '1.5rem', 
-        color: 'var(--color-text)',
-        lineHeight: '1.5'
-      }}>
+      <h2 className="countdown-title">
         Ich liebe dich unendlich +1 seit:
       </h2>
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        <div style={itemStyle}>
-          <span style={numberStyle}>{timeElapsed.days}</span>
-          <span style={labelStyle}>Tagen</span>
+      <div className="countdown-grid">
+        <div className="countdown-item">
+          <span className="countdown-number">{timeElapsed.days}</span>
+          <span className="countdown-label">Tagen</span>
         </div>
-        <div style={itemStyle}>
-          <span style={numberStyle}>{timeElapsed.hours}</span>
-          <span style={labelStyle}>Stunden</span>
+        <div className="countdown-item">
+          <span className="countdown-number">{timeElapsed.hours}</span>
+          <span className="countdown-label">Stunden</span>
         </div>
-        <div style={itemStyle}>
-          <span style={numberStyle}>{timeElapsed.minutes}</span>
-          <span style={labelStyle}>Minuten</span>
+        <div className="countdown-item">
+          <span className="countdown-number">{timeElapsed.minutes}</span>
+          <span className="countdown-label">Minuten</span>
         </div>
-        <div style={itemStyle}>
-          <span style={numberStyle}>{timeElapsed.seconds}</span>
-          <span style={labelStyle}>Sekunden</span>
+        <div className="countdown-item">
+          <span className="countdown-number">{timeElapsed.seconds}</span>
+          <span className="countdown-label">Sekunden</span>
         </div>
       </div>
     </motion.div>

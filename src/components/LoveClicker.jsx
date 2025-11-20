@@ -79,17 +79,10 @@ const LoveClicker = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.5 }}
+            className="floating-text"
             style={{
-              position: 'absolute',
               left: `${text.x}%`,
               top: `${text.y}%`,
-              fontFamily: 'var(--font-heading)',
-              fontSize: '1.5rem',
-              color: 'var(--color-stitch-light)',
-              textShadow: '3px 3px 0px var(--color-stitch-dark)',
-              pointerEvents: 'none',
-              whiteSpace: 'nowrap',
-              zIndex: 30
             }}
           >
             {text.text}
@@ -107,14 +100,7 @@ const LoveClicker = () => {
             exit={{ scale: 0, opacity: 0 }} // Shrink on exit (handled by explosion visual)
             transition={{ duration: heart.duration, ease: "linear" }}
             onClick={(e) => handleHeartClick(heart.id, e)}
-            style={{
-              position: 'absolute',
-              cursor: 'pointer',
-              pointerEvents: 'auto',
-              fontSize: '3rem',
-              filter: 'drop-shadow(4px 4px 0px rgba(0,0,0,0.3))',
-              zIndex: 10
-            }}
+            className="floating-heart"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
